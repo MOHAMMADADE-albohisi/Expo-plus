@@ -1,0 +1,34 @@
+.section-1 .content input.pass {
+  width: 2.5rem;
+  text-align: center;
+  margin-left: 1rem;
+  border-color: #ced4da !important;
+  box-shadow: none !important;
+  background-color: #f2f2f2;
+}
+.section-1 .content .form {
+  display: flex;
+  align-items: center;
+}
+.section-1 .content .submit-1 {
+  width: 85%;
+  background-color: #14aa35;
+  color: white;
+  font-weight: bold;
+  box-shadow: none !important;
+}
+@media (max-width: 767.98px) {
+  .section-1 .content .submit-1 {
+    width: 100%;
+  }
+}
+.section-1 .content .login {
+  text-align: center;
+}
+
+.section-1 .content .login .a-1 {
+  color: #14aa35;
+  margin-top: 10rem !important;
+  font-size: 13px;
+  font-weight: bold;
+}

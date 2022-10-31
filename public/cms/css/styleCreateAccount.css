@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+}
+
+.section-1 label.label-3 {
+  font-size: 17px;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.section-1 input.input-4 {
+  font-size: 18px !important;
+  outline: none !important;
+  border: 1px solid #737373 !important;
+  height: 51px !important;
+  margin-top: 11px !important;
+  padding-right: 10px !important;
+  border-radius: 0.5rem !important;
+  position: relative;
+  background-color: white !important;
+}
+.section-1 p.paragraph-2 {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 17px;
+}
+.section-1 a.span-1 {
+  color: #14aa35;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+input.check {
+  width: 20px;
+  margin-top: 22px;
+  accent-color: #14aa35;
+}
+.intl-tel-input .selected-flag {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 6px 0 8px;
+  right: -50% !important;
+  direction: ltr;
+}
+input#phone {
+  width: 100%;
+}
+.intl-tel-input .country-list {
+  direction: ltr !important;
+  margin-right: -407px !important;
+}
+.intl-tel-input.separate-dial-code .selected-flag {
+  background-color: white !important;
+  margin-left: -1rem !important;
+}
+.intl-tel-input.allow-dropdown.separate-dial-code {
+  width: 100%;
+}
+@media (max-width: 767.98px) {
+  .section-1 a.sign-up {
+    margin-top: -7px !important;
+  }
+  .section-1 p.paragraph-2 {
+    font-size: 14px;
+  }
+  .div-check {
+    display: flex;
+    align-items: baseline;
+  }
+  .section-1 .div-2 {
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+  .section-1 p.paragraph-2 {
+    margin-top: 1rem;
+    font-size: 13px;
+    font-weight: bold;
+  }
+  .section-1 p.paragraph-1 {
+    font-size: 29px !important;
+    color: #575757;
+    font-weight: 400;
+  }
+  .section-1 .div-2 {
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 991.98px) and (max-width: 1199.98px) {
+  .section-1 .div-2 {
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 1199.98px) and (max-width: 1399.98px) {
+  .section-1 .div-2 {
+    margin-bottom: 20px;
+  }
+}
+@media (min-width: 1399.98px) {
+  .section-1 .div-2 {
+    margin-bottom: 20px;
+  }
+}
