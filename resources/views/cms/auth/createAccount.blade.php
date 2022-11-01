@@ -52,21 +52,13 @@
                         <input class="input-1" type="password" name="password" id="password"
                             placeholder="أدخل كلمة المرور" />
                         <i class="bi bi-eye-slash" id="togglePassword"></i><br>
-                        <div class="div-check">
-                            <input type="checkbox" name="phone" id="phone" class="check">
-                            <p class="paragraph-2">قرأت و أوافق على <a class="span-1">شروط الاستخدام</a> و <a
-                                    class="span-1">سياسة
-                                    الخصوصية</a></p>
-                        </div>
+
                         <input class="input-2" type="submit" onclick="performstore()" value="انشاء حساب" />
                         <div class="div-1">
                             <p class="paragraph-3">هل لديك حساب؟</p>
                             <a href="" class="sign-up">تسجيل دخول</a>
                         </div>
-                        <div class="div-2">
-                            <img src="{{asset('cms/img/Group 10756.png')}}" alt="" class="image-1">
-                            <input class="input-3" type="submit" value="الدخول بواسطة جوجل">
-                        </div>
+
                     </form>
                 </div>
                 <div class="col-md-6">
