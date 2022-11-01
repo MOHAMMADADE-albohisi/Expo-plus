@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('cms')->middleware('guest:admins,users,trainees')->group(function () {
+Route::prefix('cms')->middleware('guest:admin,user,trainee')->group(function () {
     Route::get('/{guard}/login', [loginController::class, 'showLoginView'])->name('auth.login');
     Route::post('/login', [loginController::class, 'login']);
 
@@ -36,7 +36,7 @@ Route::prefix('cms')->middleware('guest:admins,users,trainees')->group(function 
 
 
 
-Route::prefix('cms/admin')->middleware('auth:admins,users,trainees')->group(function () {
+Route::prefix('cms/admin')->middleware('auth:admin,user,trainee')->group(function () {
     Route::view('/', 'cms.welcome')->name('home');
 
     Route::get('/logout', [loginController::class, 'logout'])->name('auth.logout');

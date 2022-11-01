@@ -49,7 +49,7 @@
 
             <div class="div-3">
               <p class="paragraph-3">لوحة تحكم المدربين</p>
-              <a href="http://127.0.0.1:8000/cms/users/login" class="sign-up-1">تسجيل دخول</a>
+              <a href="http://127.0.0.1:8000/cms/user/login" class="sign-up-1">تسجيل دخول</a>
             </div>
           </form>
         </div>

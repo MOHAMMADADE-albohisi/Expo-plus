@@ -137,7 +137,7 @@
             .then(function (response) {
         console.log(response);
         toastr.success(response.data.message);
-        window.location.href='http://127.0.0.1:8000/cms/trainees/login    '
+        window.location.href='http://127.0.0.1:8000/cms/trainee/login    '
       })
       .catch(function (error) {
         console.log(error);

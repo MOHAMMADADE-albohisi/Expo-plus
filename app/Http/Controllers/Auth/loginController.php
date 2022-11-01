@@ -16,7 +16,7 @@ class loginController extends Controller
     {
         $request->request->add(['guard' => $request->guard]);
         $validator = validator($request->all(), [
-            'guard' => 'required|string|in:admins,users,trainees'
+            'guard' => 'required|string|in:admin,user,trainee'
         ]);
         $request->session()->put('guard', $request->input('guard'));
         if (!$validator->fails()) {
