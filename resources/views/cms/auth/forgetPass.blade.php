@@ -42,6 +42,55 @@
                 </div>
             </div>
         </div>
+        <head>
+            <title>How to use Toastr</title>
+            <!-- jQuery -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <!-- Toastr -->
+            <link rel="stylesheet" type="text/css"
+                href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js">
+            </script>
+            <!-- Styles -->
+            <style type="text/css">
+                body {
+                    background: whitesmoke;
+                    text-align: center;
+                }
+
+                button {
+                    background-color: darkslategrey;
+                    color: white;
+                    border: 0;
+                    font-size: 18px;
+                    font-weight: 500;
+                    border-radius: 7px;
+                    padding: 10px 10px;
+                    cursor: pointer;
+                    white-space: nowrap;
+                }
+
+                #success {
+                    background: green;
+                }
+
+                #error {
+                    background: red;
+                }
+
+                #warning {
+                    background: coral;
+                }
+
+                #info {
+                    background: cornflowerblue;
+                }
+
+                #question {
+                    background: grey;
+                }
+            </style>
+        </head>
     </section>
     </div>
     <script src="{{asset('cms/js/bootstrap.bundle.min.js')}}"></script>

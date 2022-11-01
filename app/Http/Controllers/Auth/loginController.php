@@ -16,7 +16,7 @@ class loginController extends Controller
     {
         $request->request->add(['guard' => $request->guard]);
         $validator = validator($request->all(), [
-            'guard' => 'required|string|in:admin,users,trainees'
+            'guard' => 'required|string|in:admins,users,trainees'
         ]);
         $request->session()->put('guard', $request->input('guard'));
         if (!$validator->fails()) {
@@ -90,7 +90,8 @@ class loginController extends Controller
 
     public function shoewResetPassword(Request $request, $token)
     {
-        return response()->view('cms.auth.createPass', ['token' => $token, 'email' => $request->input('email')]);
+        $guard = session('guard');
+        return response()->view('cms.auth.createPass', ['token' => $token, 'guard' => $guard, 'email' => $request->input('email')]);
     }
 
     public function resetPassword(Request $request)

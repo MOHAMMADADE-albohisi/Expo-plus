@@ -20,7 +20,7 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('cms')->middleware('guest:admin,users,trainees')->group(function () {
+Route::prefix('cms')->middleware('guest:admins,users,trainees')->group(function () {
     Route::get('/{guard}/login', [loginController::class, 'showLoginView'])->name('auth.login');
     Route::post('/login', [loginController::class, 'login']);
 
@@ -29,11 +29,14 @@ Route::prefix('cms')->middleware('guest:admin,users,trainees')->group(function (
 
     Route::get('forgot-password', [loginController::class, 'showForgotpassword'])->name('password.forgot');
     Route::post('forgot-password', [loginController::class, 'sendResetLink']);
+
+    Route::get('reset-password/{token}', [loginController::class, 'shoewResetPassword'])->name('password.reset');
+    Route::post('reset-password', [loginController::class, 'resetPassword']);
 });
 
-//
 
-Route::prefix('cms/admin')->middleware('auth:admin,users,trainees')->group(function () {
+
+Route::prefix('cms/admin')->middleware('auth:admins,users,trainees')->group(function () {
     Route::view('/', 'cms.welcome')->name('home');
 
     Route::get('/logout', [loginController::class, 'logout'])->name('auth.logout');
