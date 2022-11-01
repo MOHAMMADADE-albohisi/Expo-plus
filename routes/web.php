@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Auth\loginController;
+use App\Http\Controllers\userRegesterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +20,21 @@ Route::get('/', function () {
 });
 
 
-Route::prefix('Expo-Plus')->group(function () {
+Route::prefix('cms')->middleware('guest:admin,users,trainees')->group(function () {
+    Route::get('/{guard}/login', [loginController::class, 'showLoginView'])->name('auth.login');
+    Route::post('/login', [loginController::class, 'login']);
+
+    Route::get('/user-regester', [userRegesterController::class, 'showuserRegester'])->name('user-regester');
+    Route::post('/regester', [userRegesterController::class, 'regesterUser']);
+
+    Route::get('forgot-password', [loginController::class, 'showForgotpassword'])->name('password.forgot');
+    Route::post('forgot-password', [loginController::class, 'sendResetLink']);
+});
+
+//
+
+Route::prefix('cms/admin')->middleware('auth:admin,users,trainees')->group(function () {
+    Route::view('/', 'cms.welcome')->name('home');
+
+    Route::get('/logout', [loginController::class, 'logout'])->name('auth.logout');
 });

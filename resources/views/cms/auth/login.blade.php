@@ -8,7 +8,15 @@
   <title>Login</title>
   <link rel="stylesheet" href="{{asset('cms/css/bootstrap.min.css')}}">
   <link rel="stylesheet" href="{{asset('cms/css/all.min.css')}}">
+  <link rel="canonical" href="https://keenthemes.com/metronic" />
+
+<!--begin::Fonts-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+<!--end::Fonts-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css"
+    integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="{{asset('cms/css/login.css')}}">
 </head>
 
@@ -27,24 +35,21 @@
             <p class="paragraph-1 text-center text-md-end">أهلا بك في اكسبو</p>
           </div>
           <form action="">
-            <label for="username" class="label-1 text-start">البريد الالكتروني</label><br>
-            <input class="input-1" type="email" name="username" id="username" placeholder="أدخل البريد الالكتروني"><br>
+            <label for="email" class="label-1 text-start">البريد الالكتروني</label><br>
+            <input class="input-1" type="email" name="email" id="email" placeholder="أدخل البريد الالكتروني"><br>
             <label for="password" class="label-2">كلمة المرور</label><br>
             <input class="input-1" type="password" name="password" id="password" placeholder="أدخل كلمة المرور" />
             <i class="bi bi-eye-slash" id="togglePassword"></i><br>
-            <a class="paragraph_2">نسيت كلمة المرور ؟</a>
-            <input class="input-2" type="submit" value="تسجيل الدخول" />
+            <a class="paragraph_2" href="{{route('password.forgot')}}">نسيت كلمة المرور ؟</a>
+            <input class="input-2" type="button" onclick="performStore()" value="تسجيل الدخول" />
             <div class="div-1">
               <p class="paragraph-3">ليس لديك حساب؟</p>
-              <a href="" class="sign-up">انشاء حساب</a>
+              <a href="{{route('user-regester')}}" class="sign-up">انشاء حساب</a>
             </div>
-            <div class="div-2">
-              <img src="{{asset('cms/img/Group 10756.png')}}" alt="" class="image-1">
-              <input class="input-3" type="submit" value="الدخول بواسطة جوجل">
-            </div>
+
             <div class="div-3">
               <p class="paragraph-3">لوحة تحكم المدربين</p>
-              <a href="" class="sign-up-1">تسجيل دخول</a>
+              <a href="http://127.0.0.1:8000/cms/users/login" class="sign-up-1">تسجيل دخول</a>
             </div>
           </form>
         </div>
@@ -60,6 +65,24 @@
   <script src="{{asset('cms/js/bootstrap.bundle.min.js')}}"></script>
   <script src="{{asset('cms/js/all.min.js')}}"></script>
   <script src="{{asset('cms/js/script.js')}}"></script>
+  <script src="https://unpkg.com/axios@0.27.2/dist/axios.min.js"></script>
 </body>
+<script>
+    function performStore(){
+   axios.post('/cms/login', {
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value,
+        })
+  .then(function (response) {
+    console.log(response);
+    window.location.href='/cms/admin';
 
+  })
+  .catch(function (error) {
+    console.log(error);
+    toastr.error(error.response.data.message);
+  });
+
+    }
+</script>
 </html>

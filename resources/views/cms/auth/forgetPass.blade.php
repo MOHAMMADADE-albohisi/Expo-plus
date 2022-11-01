@@ -30,9 +30,9 @@
                     </div>
                     <form action="">
                         <label for="username" class="label-2">البريد الالكتروني</label><br>
-                        <input class="input-1" type="email" name="" id="" placeholder="أدخل البريد الالكتروني"><br>
-                        <input class="input-2" type="submit" value="طلب الاستعادة" /><br>
-                        <a href="" class="sign-up">الرجوع الى تسجيل الدخول</a>
+                        <input class="input-1" type="email" name="email" id="email_link" placeholder="أدخل البريد الالكتروني"><br>
+                        <input class="input-2" type="button" onclick="performForgotpassword()" value="طلب الاستعادة" /><br>
+                        <a href="{{route('auth.login',$guard)}}" class="sign-up">الرجوع الى تسجيل الدخول</a>
                     </form>
                 </div>
                 <div class="col-md-6">
@@ -46,6 +46,25 @@
     </div>
     <script src="{{asset('cms/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{asset('cms/js/all.min.js')}}"></script>
+  <script src="https://unpkg.com/axios@0.27.2/dist/axios.min.js"></script>
+<script>
+    function performForgotpassword(){
+        // alert('test');
+        // consol.log('teat1');
+                axios.post('/cms/forgot-password', {
+                    email: document.getElementById('email_link').value,
+                })
+                .then(function (response) {
+                    console.log(response);
+                    toastr.success(response.data.message);
+                    // window.location.href = '/cms/admin'
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    toastr.error(error.response.data.message);
+                });
+            }
+</script>
 </body>
 
 </html>

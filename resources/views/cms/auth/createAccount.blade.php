@@ -42,23 +42,23 @@
                     </div>
                     <form action="">
                         <label for="username" class="label-1">الاسم بالكامل</label><br>
-                        <input class="input-1" type="text" name="" id="" placeholder="أدخل الاسم بالكامل"><br>
+                        <input class="input-1" type="text" name="name" id="name" placeholder="أدخل الاسم بالكامل"><br>
                         <label for="username" class="label-2">البريد الالكتروني</label><br>
-                        <input class="input-1" type="email" name="username" id="username"
+                        <input class="input-1" type="email" name="email" id="email"
                             placeholder="أدخل البريد الالكتروني"><br>
                         <label for="" class="label-3">رقم الهاتف</label><br>
-                        <input type="tel" name="" id="phone" class="input-4" placeholder="أدخل رقم الهاتف"><br>
+                        <input type="tel" name="phone" id="phone" class="input-4" placeholder="أدخل رقم الهاتف"><br>
                         <label for="password" class="label-2">كلمة المرور</label><br>
                         <input class="input-1" type="password" name="password" id="password"
                             placeholder="أدخل كلمة المرور" />
                         <i class="bi bi-eye-slash" id="togglePassword"></i><br>
                         <div class="div-check">
-                            <input type="checkbox" name="" id="" class="check">
+                            <input type="checkbox" name="phone" id="phone" class="check">
                             <p class="paragraph-2">قرأت و أوافق على <a class="span-1">شروط الاستخدام</a> و <a
                                     class="span-1">سياسة
                                     الخصوصية</a></p>
                         </div>
-                        <input class="input-2" type="submit" value="انشاء حساب" />
+                        <input class="input-2" type="submit" onclick="performstore()" value="انشاء حساب" />
                         <div class="div-1">
                             <p class="paragraph-3">هل لديك حساب؟</p>
                             <a href="" class="sign-up">تسجيل دخول</a>
@@ -82,6 +82,28 @@
     <script src="{{asset('cms/js/all.min.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/15.0.0/js/intlTelInput.min.js"></script>
     <script src="{{asset('cms/js/script.js')}}"></script>
+  <script src="https://unpkg.com/axios@0.27.2/dist/axios.min.js"></script>
+    <script>
+        function performstore(){
+           // alert('test');
+            let formData=new FormData ();
+                formData.append('name',document.getElementById('name').value);
+                formData.append('email',document.getElementById('email').value);
+                formData.append('phone',document.getElementById('phone').value);
+                formData.append('password',document.getElementById('password').value);
+
+            axios.post('/cms/regester', formData)
+            .then(function (response) {
+        console.log(response);
+        toastr.success(response.data.message);
+        window.location.href='/bankplus/admin'
+      })
+      .catch(function (error) {
+        console.log(error);
+        toastr.error(error.response.data.message);
+      });
+        }
+    </script>
 </body>
 
 </html>
